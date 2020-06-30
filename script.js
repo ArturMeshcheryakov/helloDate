@@ -17,12 +17,10 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   function timeOfDay(num) {
-    let message = '';
-
-    if (num > 6 && num < 12) return message = 'Доброе утро';
-    if (num > 12 && num < 18) return message = 'Добрый день';
-    if (num > 18 && num < 24) return message = 'Добрый вечер';
-    if (num > 24 && num < 6) return message = 'Доброй ночи';
+    if (num >= 6 && num < 12) return 'Доброе утро';
+    if (num >= 12 && num < 18) return 'Добрый день';
+    if (num >= 18 && num <= 23) return 'Добрый вечер';
+    if (num >= 0 && num < 6) return 'Доброй ночи';
   }
 
   function formatDate(num, arr) {
@@ -42,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function () {
     let hours = rightDate(date.getHours());
     let minutes = rightDate(date.getMinutes());
     let seconds = rightDate(date.getSeconds());
-    let ofDay = timeOfDay(hours);
+    let ofDay = timeOfDay(date.getHours());
     let today = dayArr[date.getDay()];
     let message = '';
 
